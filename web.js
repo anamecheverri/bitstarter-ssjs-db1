@@ -36,6 +36,7 @@ app.get('/orders', function(request, response) {
 // Hit this URL while on example.com/orders to refresh
 app.get('/refresh_orders', function(request, response) {
   https.get("https://coinbase.com/api/v1/orders?api_key=" + process.env.COINBASE_API_KEY, function(res) {
+    console.log("My api key is: " + process.env.COINBASE_API_KEY);
     var body = '';
     res.on('data', function(chunk) {body += chunk;});
     res.on('end', function() {
